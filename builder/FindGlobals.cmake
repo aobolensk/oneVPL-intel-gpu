@@ -265,6 +265,9 @@ if(NOT CMAKE_SYSTEM_NAME MATCHES Windows)
         -Wno-unknown-pragmas
         -Wno-unused
       >
+      $<$<AND:$<CXX_COMPILER_ID:Clang>,$<VERSION_GREATER_EQUAL:${CMAKE_CXX_COMPILER_VERSION},13.0>>:
+        -Wunused-but-set-variable
+      >
   )
 endif()
 
